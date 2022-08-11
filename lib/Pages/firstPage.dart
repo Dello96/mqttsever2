@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mqttsever2/MQTTClient.dart';
 import 'dart:async';
+import 'package:mqttsever2/Resources/data.dart';
 
 import 'package:mqttsever2/Widgets/glasscard.dart';
 
@@ -14,18 +15,28 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   @override
+  void initState () {
+    super.initState();
+    myData.changeState = changeState;
+  }
+
+  void changeState () {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        height: 900,
+        height: 920,
         color: Colors.grey[300],
         child: Column(
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 150,
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+              height: 130,
+              margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -33,7 +44,10 @@ class _FirstPageState extends State<FirstPage> {
                     image: AssetImage('assets/images/Glatic_logo.png'))
               ),
             ),
-            Expanded(child: GlassControlCard(glassName: 'glass1'))
+           Container(
+             width: MediaQuery.of(context).size.width,
+               height: 770,
+               child: GlassControlCard(mqttClient: widget.mqttClient))
           ],
         ),
       ),

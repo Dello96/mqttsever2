@@ -29,7 +29,7 @@ class _FirstPageState extends State<FirstPage> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        height: 920,
+        height: 830,
         color: Colors.grey[300],
         child: Column(
           children: [
@@ -46,7 +46,7 @@ class _FirstPageState extends State<FirstPage> {
             ),
            Container(
              width: MediaQuery.of(context).size.width,
-               height: 770,
+               height: 650,
                child: GlassControlCard(mqttClient: widget.mqttClient))
           ],
         ),
